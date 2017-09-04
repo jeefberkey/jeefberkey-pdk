@@ -6,5 +6,11 @@
 #
 # @example
 #   include pdk
-class pdk {
+class pdk (
+  Stdlib::HTTPSUrl $base_url,
+  Pdk::Dist $dist,
+  Pdk::Arch $arch,
+  String $version,
+) {
+  include '::pdk::install'
 }

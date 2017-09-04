@@ -1,0 +1,3 @@
+---
+pdk::base_url: https://pm.puppetlabs.com/cgi-bin/pdk_download.cgi
+pdk::version: latest

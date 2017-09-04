@@ -7,4 +7,10 @@
 # @example
 #   include pdk::install
 class pdk::install {
+  case $facts['kernel'] {
+    'linux':   { include '::pdk::install::linux'   }
+    'Darwin':  { include '::pdk::install::macos'   }
+    'windows': { include '::pdk::install::windows' }
+    default:   { fail("${facts['kernel']} not supported") }
+  }
 }

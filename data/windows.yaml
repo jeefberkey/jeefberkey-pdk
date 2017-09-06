@@ -1,2 +1,3 @@
 ---
 pdk::dist: win
+pdk::staging_dir: 'C:/'

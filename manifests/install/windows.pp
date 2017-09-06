@@ -8,5 +8,9 @@
 #   include pdk::install::windows
 class pdk::install::windows {
   assert_private()
-  # https://pm.puppetlabs.com/cgi-bin/pdk_download.cgi?dist=win&arch=x64&ver=latest
+
+  # package { 'pdk':
+  #   ensure => $pdk::package_ensure,
+  #   source => "${pdk::staging_dir}/pdk-installer"
+  # }
 }

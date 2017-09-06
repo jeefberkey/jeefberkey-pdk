@@ -11,6 +11,12 @@ class pdk (
   Pdk::Dist $dist,
   String $version,
   Stdlib::AbsolutePath $staging_dir,
+  String $package_ensure,
 ) {
+
+  include '::pdk::download'
   include '::pdk::install'
+
+  Class['::pdk::download']
+  -> Class['::pdk::install']
 }

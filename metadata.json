@@ -15,13 +15,6 @@
   ],
   "operatingsystem_support": [
     {
-      "operatingsystem": "Debian",
-      "operatingsystemrelease": [
-        "8",
-        "9"
-      ]
-    },
-    {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
         "6.0",
@@ -70,7 +63,7 @@
         "Server 2008 R2",
         "Server 2012",
         "Server 2012 R2",
-        "Server 2016"
+        "Server 2016",
         "7",
         "8",
         "10"

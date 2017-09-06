@@ -1,1 +1,3 @@
 ---
+pdk::dist: sles
+pdk::staging_dir: /tmp/

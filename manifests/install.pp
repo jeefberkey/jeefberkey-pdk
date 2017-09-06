@@ -7,6 +7,7 @@
 # @example
 #   include pdk::install
 class pdk::install {
+  assert_private()
   case $facts['kernel'] {
     'linux':   { include '::pdk::install::linux'   }
     'Darwin':  { include '::pdk::install::macos'   }

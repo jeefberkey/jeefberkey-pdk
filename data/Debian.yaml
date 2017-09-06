@@ -1,1 +1,3 @@
 ---
+pdk::dist: ubuntu
+pdk::staging_dir: /tmp/

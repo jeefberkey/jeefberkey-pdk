@@ -9,8 +9,8 @@
 class pdk (
   Stdlib::HTTPSUrl $base_url,
   Pdk::Dist $dist,
-  Pdk::Arch $arch,
   String $version,
+  Stdlib::AbsolutePath $staging_dir,
 ) {
   include '::pdk::install'
 }

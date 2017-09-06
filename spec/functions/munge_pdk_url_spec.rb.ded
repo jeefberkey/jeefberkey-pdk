@@ -1,0 +1,28 @@
+require 'spec_helper'
+
+describe 'munge_pdk_url' do
+  # it { is_expected.to run.with_params('foo', 'bar') }
+  let(:base_url) { 'https://pm.puppetlabs.com/cgi-bin/pdk_download.cgi' }
+
+  context 'on sles' do
+    # it {require 'pry';binding.pry}
+    it { is_expected.to run.with_params(base_url,'sles','latest') }
+  end
+
+  context 'on ubuntu' do
+    it { is_expected.to run.with_params(base_url,'ubuntu','latest') }
+  end
+
+  context 'on el' do
+    it { is_expected.to run.with_params(base_url,'el','latest') }
+  end
+
+  context 'on windows' do
+    it { is_expected.to run.with_params(base_url,'win','latest') }
+  end
+
+  context 'on osx' do
+    it { is_expected.to run.with_params(base_url,'osx','latest') }
+  end
+
+end

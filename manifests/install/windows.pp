@@ -7,5 +7,6 @@
 # @example
 #   include pdk::install::windows
 class pdk::install::windows {
+  assert_private()
   # https://pm.puppetlabs.com/cgi-bin/pdk_download.cgi?dist=win&arch=x64&ver=latest
 }

@@ -5,7 +5,7 @@ describe 'pdk' do
     context "on #{os}" do
       let(:facts) { os_facts }
 
-      let (:os_id) { "#{os_facts[:os]['family']}-#{os_facts[:os]['release']['major']}" }
+      let(:os_id) { "#{os_facts[:os]['family']}-#{os_facts[:os]['release']['major']}" }
 
       it { is_expected.to compile }
       it { is_expected.to contain_class('pdk') }
@@ -27,38 +27,33 @@ describe 'pdk' do
         }
 
         case os_facts[:kernel]
-        when /(Linux|Darwin)/
-          it { is_expected.to contain_file('/tmp/pdk-installer') }
-          it { is_expected.to contain_file('/tmp/pdk-installer').with_source(urls[os_id]) }
-        when /windows/
-          it { is_expected.to contain_file('C://pdk-installer') }
-          it { is_expected.to contain_file('C://pdk-installer').with_source(urls[os_id]) }
+        when %r{Linux|Darwin}
+          it { is_expected.to contain_remote_file('/tmp/pdk-installer') }
+          it { is_expected.to contain_remote_file('/tmp/pdk-installer').with_source(urls[os_id]) }
+        when %r{windows}
+          it { is_expected.to contain_remote_file('C://pdk-installer') }
+          it { is_expected.to contain_remote_file('C://pdk-installer').with_source(urls[os_id]) }
         end
       end
 
       context 'pdk::install' do
-        # case os_facts[:kernel]
-        # when /linux/
-        #   it { is_expected.to contain_class('pdk::install::linux') }
-        # when /windows/
-        #   it { is_expected.to contain_class('pdk::install::windows') }
-        # when /Darwin/
-        #   it { is_expected.to contain_class('pdk::install::macos') }
-        # end
         case os_facts[:kernel]
-        when /(Linux|Darwin)/
-          it { is_expected.to create_package('pdk').with({
-            :ensure => 'present',
-            :source => '/tmp/pdk-installer'
-          }) }
-        when /windows/
-          it { is_expected.to create_package('pdk').with({
-            :ensure => 'present',
-            :source => 'C://pdk-installer'
-          }) }
+        when %r{Linux|Darwin}
+          it {
+            is_expected.to create_package('pdk').with(
+              ensure: 'present',
+              source: '/tmp/pdk-installer',
+            )
+          }
+        when %r{windows}
+          it {
+            is_expected.to create_package('pdk').with(
+              ensure: 'present',
+              source: 'C://pdk-installer',
+            )
+          }
         end
       end
-
     end
   end
 end

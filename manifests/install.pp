@@ -10,15 +10,9 @@ class pdk::install {
   assert_private()
 
   package { 'pdk':
-    ensure => $pdk::package_ensure,
-    source => "${pdk::staging_dir}/pdk-installer"
+    ensure   => $pdk::package_ensure,
+    source   => "${pdk::staging_dir}/pdk-installer",
+    provider => $pdk::package_provider,
   }
 
-
-  # case $facts['kernel'] {
-  #   'linux':   { include '::pdk::install::linux'   }
-  #   'Darwin':  { include '::pdk::install::macos'   }
-  #   'windows': { include '::pdk::install::windows' }
-  #   default:   { fail("${facts['kernel']} not supported") }
-  # }
 }

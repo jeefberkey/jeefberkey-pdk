@@ -2,5 +2,4 @@
 fixtures:
   forge_modules:
     stdlib: puppetlabs/stdlib
-  symlinks:
-    simp: "#{source_dir}"
+    remote_file: lwf/remote_file

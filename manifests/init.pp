@@ -12,6 +12,7 @@ class pdk (
   String $version,
   Stdlib::AbsolutePath $staging_dir,
   String $package_ensure,
+  String $package_provider,
 ) {
 
   include '::pdk::download'

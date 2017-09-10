@@ -1,3 +1,4 @@
+# Download the PDK installer
 class pdk::download {
   assert_private()
 
@@ -8,7 +9,8 @@ class pdk::download {
     $pdk::staging_dir,
   )
 
-  file { "${pdk::staging_dir}/pdk-installer":
+  remote_file { "${pdk::staging_dir}/pdk-installer":
+    ensure => present,
     source => $url,
   }
 

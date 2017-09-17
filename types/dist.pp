@@ -4,5 +4,5 @@ type Pdk::Dist = Enum[
   'osx',
   'el',
   'sles',
-  'ubuntu',
+  'ubuntu'
 ]

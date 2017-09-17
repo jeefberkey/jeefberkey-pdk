@@ -10,7 +10,7 @@ describe 'pdk class' do
       apply_manifest(pp, catch_failures: true)
       apply_manifest(pp, catch_changes:  true)
     end
-    it 'should generate a module' do
+    it 'is expected to generate a module' do
       on(hosts, 'pdk new module --skip-interview test')
       on(hosts, 'cd test; pdk validate')
     end
